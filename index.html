@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>.: GENIUS :.</title>
+</head>
+<body>
+    <div id="container">
+        <div class="row">
+            <div onclick="colorClicked(event.currentTarget, this)" class="btncolor" id="yellow"></div>
+            <div onclick="colorClicked(event.currentTarget, this)" class="btncolor" id="blue"></div>
+        </div>
+        <div class="row">
+            <div onclick="colorClicked(event.currentTarget, this)" class="btncolor" id="green"></div>
+            <div onclick="colorClicked(event.currentTarget, this)" class="btncolor" id="red"></div>
+        </div>
+        <div id= "start" class="center" style="display: flex"> <p id="titStart">START</p> <p id="contagem">0</p></div>
+        <div id= "gameover" class="center" style="display: none"> <p>GAME OVER</p> <p id="restart">RESTART</p></div>
+    </div>
+    <div id="dev">
+        Desenvolvido por <a href="https://github.com/mtavidal" target="_blank"><u>Manuela Vidal</u></a>
+      </div>
+    <script src="index.js"></script>
+</body>
+</html>
