@@ -12,12 +12,12 @@
 }
 
 body{
-    background-color: rgb(31, 30, 30);
+    background-color: rgb(39, 34, 34);
     text-align: center;
 }
 .active {
     box-shadow: inset 0px 0px 10px 5px rgb(132, 138, 138); 
-    filter: brightness(2) opacity(1.5);
+    filter: brightness(2) opacity(1.2);
 }
 
 .btnclick{
@@ -29,29 +29,29 @@ body{
     width: 150px;
     height: 150px;
     cursor: pointer;
-    box-shadow: inset 0px 0px 10px 2px rgb(39, 41, 41), 1px 1px 15px 5px #000000; 
+    box-shadow: inset 0px 0px 10px 2px rgb(31, 32, 32), 1px 1px 10px 2px #92bcbe; 
     
 }
 
 .btncolor:hover{
-    box-shadow: inset 0px 0px 10px 6px rgb(39, 41, 41); 
+    box-shadow: inset 0px 0px 30px 20px rgb(39, 41, 41), 1px 1px 10px 2px #444949; 
     box-sizing: border-box;
 }
 
 #blue {
-    background-color: rgb(15, 15, 189);
+    background-color: rgb(17, 17, 117);
     border-bottom-left-radius: 100%;
 }
 #red {
-    background-color: rgb(195, 17, 17);
+    background-color: rgb(126, 21, 21);
     border-bottom-right-radius: 100%;
 }
 #yellow {
-    background-color: rgb(185, 185, 22);
+    background-color: rgb(124, 124, 19);
     border-top-left-radius: 100%;
 }
 #green {
-    background-color: rgb(20, 187, 20);
+    background-color: rgb(12, 99, 12);
     border-top-right-radius: 100%;
     
 }
@@ -117,7 +117,7 @@ body{
 }
 
 #dev {
-    background-color:rgb(31, 30, 30);
+    background-color: rgb(39, 34, 34);
     color: #d2c6c6;
     text-align: center;
     font-size: 10px;
@@ -127,5 +127,5 @@ body{
 }
 
 #dev a {
-    color: #926060;
+    color: #10757c; ;
 }
