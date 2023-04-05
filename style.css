@@ -34,7 +34,7 @@ body{
 }
 
 .btncolor:hover{
-    box-shadow: inset 0px 0px 30px 20px rgb(39, 41, 41), 1px 1px 10px 2px #92bcbe; 
+    box-shadow: inset 0px 0px 20px 5px rgb(39, 41, 41), 1px 1px 10px 2px #92bcbe; 
     box-sizing: border-box;
 }
 
