@@ -3,7 +3,7 @@
 }
 
 #cabecalho{
-    padding-top: 70px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     font-family: 'Orbitron', sans-serif;
@@ -12,7 +12,8 @@
 }
 
 #cabecalho2{
-    padding-top: 45px;
+    padding-top: 25px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: space-evenly;
     font-size: 18px;
@@ -129,13 +130,11 @@ body{
 #newRecord{
     text-shadow: rgb(94, 108, 231) 1px 1px 1px;
     color: rgb(38, 230, 255);
-    background-color: #000000;
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
     position: absolute;
-    top: 395px;
-    z-index: 3;
+    top:180px;
     font-size: 15px;
     text-align: center;
     align-items: center;
@@ -144,6 +143,13 @@ body{
     align-self: center;
     font-family: 'Press Start 2P', cursive;
     box-shadow: inset 0px 0px 10px 2px rgb(31, 32, 32), 1px 1px 10px 2px #92bcbe; 
+}
+
+.newRecordActive{
+    text-shadow: rgb(47, 52, 101) 1px 1px 1px !important; 
+    color: rgb(37, 25, 120)!important;
+    background-color: #3f3b3b;
+    box-shadow: inset 0px 0px 10px 2px rgb(31, 32, 32), 1px 1px 10px 2px #252d2d!important; 
 }
 
 #restart{

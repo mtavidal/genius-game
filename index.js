@@ -2,7 +2,7 @@ const topLeft = document.querySelector('#yellow');
 const topRight = document.querySelector('#green');
 const bottomLeft = document.querySelector('#blue');
 const bottomRight = document.querySelector('#red');
-
+const newRecord = document.querySelector('#newRecord');
 const getRandomBtnColor = () => {
     const btncolors = [
         topLeft,
@@ -64,6 +64,9 @@ const colorClicked = (colorClicked, teste) => {
                 corClicadaMaior = localStorage.getItem('bestScore');
                 const newRecord = document.querySelector('#newRecord');
                 newRecord.style.display = "flex";
+                for (let index = 0; index < 3; index++) {
+                    await piscaRecord() ;
+                }
             }
 
             corClicada = 0;
@@ -72,7 +75,7 @@ const colorClicked = (colorClicked, teste) => {
             contagem.textContent = valor;
             const gameover = document.querySelector('#gameover');
             gameover.style.display = "flex";
-            for (let index = 0; index < 5; index++) {
+            for (let index = 0; index < 3; index++) {
                 await pisca();
             }
             const newRecord = document.querySelector('#newRecord');
@@ -95,6 +98,15 @@ async function pisca() {
         topRight.className = topRight.className.replace(' active', '');
         bottomLeft.className = bottomLeft.className.replace(' active', '');
         bottomRight.className = bottomRight.className.replace(' active', '');
+    }, 500);
+    await new Promise(resolve => setTimeout(resolve, 500));
+}
+async function piscaRecord() {
+    setTimeout(() => {
+        newRecord.className += 'newRecordActive';
+    }, 200);
+    setTimeout(() => {
+        newRecord.className = newRecord.className.replace('newRecordActive', '');
     }, 500);
     await new Promise(resolve => setTimeout(resolve, 500));
 }
