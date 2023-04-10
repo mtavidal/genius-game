@@ -31,33 +31,52 @@ const flash = btncolor => {
 };
 
 let canClick = false;
-
+let corClicada = 0;
+let corClicadaMaior = localStorage.getItem('bestScore');
+console.log("corclicadaMAIOR" + corClicadaMaior);
 const colorClicked = (colorClicked, teste) => {
     teste.className += ' active';
     setTimeout(() => {
         teste.className = teste.className.replace(' active', '');
     }, 500);
-    setTimeout( async () => {
+    setTimeout(async () => {
         if (!canClick) return;
         const expectedColor = sequenceToGuess.shift();
         if (expectedColor === colorClicked) {
             if (sequenceToGuess.length === 0) {
                 sequence.push(getRandomBtnColor());
                 sequenceToGuess = [...sequence];
+                corClicada++;
                 startFlashing();
             }
         } else {
             sequence = [];
             sequence.push(getRandomBtnColor());
             sequenceToGuess = [...sequence];
+            let totScore = document.querySelector("#totScore");
+            totScore.textContent = corClicada;
+            if (corClicada > corClicadaMaior) {
+                console.log("corclicada" + corClicada);
+                console.log("corclicadaMAIOR" + corClicadaMaior);
+                let totBest = document.querySelector("#totBest");
+                totBest.textContent = corClicada;
+                localStorage.setItem('bestScore', corClicada);
+                corClicadaMaior = localStorage.getItem('bestScore');
+                const newRecord = document.querySelector('#newRecord');
+                newRecord.style.display = "flex";
+            }
+
+            corClicada = 0;
             let contagem = document.querySelector("#contagem");
             let valor = 0;
             contagem.textContent = valor;
             const gameover = document.querySelector('#gameover');
             gameover.style.display = "flex";
-            for (let index = 0; index < 5; index++) {             
+            for (let index = 0; index < 5; index++) {
                 await pisca();
             }
+            const newRecord = document.querySelector('#newRecord');
+            newRecord.style.display = "none";
             const restart = document.querySelector('#restart');
             restart.addEventListener("click", startFlashing);
         }
@@ -77,7 +96,7 @@ async function pisca() {
         bottomLeft.className = bottomLeft.className.replace(' active', '');
         bottomRight.className = bottomRight.className.replace(' active', '');
     }, 500);
-    await new Promise(resolve => setTimeout(resolve,500));
+    await new Promise(resolve => setTimeout(resolve, 500));
 }
 
 const startFlashing = async () => {
@@ -87,7 +106,7 @@ const startFlashing = async () => {
     const gameover = document.querySelector('#gameover');
     gameover.style.display = "none";
     const titStart = document.querySelector('#titStart');
-    titStart.textContent = "PLAY!";
+    titStart.textContent = "PLAY";
     for (const btncolor of sequence) {
         valor++;
         contagem.textContent = valor;
@@ -98,4 +117,14 @@ const startFlashing = async () => {
 
 const start = document.querySelector('#start');
 start.addEventListener("click", startFlashing);
+if (corClicadaMaior == undefined) {
+    let totBest = document.querySelector("#totBest");
+    totBest.textContent = "-";
+} else {
+    let totBest = document.querySelector("#totBest");
+    totBest.textContent = localStorage.getItem('bestScore');
+}
+
+
+
 
