@@ -56,17 +56,19 @@ const colorClicked = (colorClicked, teste) => {
             let totScore = document.querySelector("#totScore");
             totScore.textContent = corClicada;
             if (corClicada > corClicadaMaior) {
-                console.log("corclicada" + corClicada);
-                console.log("corclicadaMAIOR" + corClicadaMaior);
                 let totBest = document.querySelector("#totBest");
                 totBest.textContent = corClicada;
                 localStorage.setItem('bestScore', corClicada);
                 corClicadaMaior = localStorage.getItem('bestScore');
+                const center = document.querySelector('.center');
+                center.style.display = "none"
                 const newRecord = document.querySelector('#newRecord');
                 newRecord.style.display = "flex";
-                for (let index = 0; index < 3; index++) {
+                for (let index = 0; index < 5; index++) {
                     await piscaRecord() ;
                 }
+                newRecord.style.display = "none";
+                center.style.display = "flex";
             }
 
             corClicada = 0;
@@ -78,8 +80,6 @@ const colorClicked = (colorClicked, teste) => {
             for (let index = 0; index < 3; index++) {
                 await pisca();
             }
-            const newRecord = document.querySelector('#newRecord');
-            newRecord.style.display = "none";
             const restart = document.querySelector('#restart');
             restart.addEventListener("click", startFlashing);
         }
@@ -118,7 +118,9 @@ const startFlashing = async () => {
     const gameover = document.querySelector('#gameover');
     gameover.style.display = "none";
     const titStart = document.querySelector('#titStart');
-    titStart.textContent = "PLAY";
+    titStart.textContent = "";
+    const titPlay = document.querySelector('#titPlay');
+    titPlay.textContent = "PLAY";
     for (const btncolor of sequence) {
         valor++;
         contagem.textContent = valor;
@@ -127,7 +129,7 @@ const startFlashing = async () => {
     canClick = true;
 };
 
-const start = document.querySelector('#start');
+const start = document.querySelector('#titStart');
 start.addEventListener("click", startFlashing);
 if (corClicadaMaior == undefined) {
     let totBest = document.querySelector("#totBest");
